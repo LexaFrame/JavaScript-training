@@ -1,0 +1,16 @@
+{
+  "name": "pixelbay-nodejs",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Exercices JavaScript PixelBay pour Node.js",
+  "main": "index.js",
+  "scripts": {
+    "info": "echo version 1.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
