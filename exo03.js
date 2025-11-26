@@ -1,9 +1,8 @@
 import readlineSync from 'readline-sync';
-const nom = readlineSync.question('Quel est votre nom ? ');
-console.log('Bonjour, ' + nom + ' !');
+const volume = readlineSync.question('Quel est le volume de vente du jour ? ');
 
 const nom_magasin = "PixelBay";
-let jeuxVendus = 60 ;
+let jeuxVendus = volume ;
 if (jeuxVendus>100) {
     console.log("Le magasin organise une grande promotion !");
 } else if (jeuxVendus>=50 && jeuxVendus<=100) {
