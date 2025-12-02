@@ -27,18 +27,22 @@ prix_final_autre = promotion_autre(prix_jeu, reduction_autre);
 const phrase1 = `Les jeux de ${nom_magasin} sont habituellement vendus au prix de ${prix_jeu} € , mais ${nom_magasin} fait parfois des promotions.`
 console.log(phrase1)
 
+// Utilisation de readlinesyn+switch-case pour saisir le choix utilisateur et afficher le tarif promotionnel souhaité, avec une alternative si l'utilisateur ne respecte pas la saisie demandée.
 let choix_promo = readlineSync.question(`Saisir "ete" ou "hiver" ou "autre" pour connaitre le prix du jeu selon la promotion souhaitee : `)
 
 switch (choix_promo) {
     case "ete":
+        // Pour économiser des ressources : exécution de la fonction à déplacer ici si possible
         console.log(`Prix du jeu après application de la promotion d'été : ${prix_final_ete} €.`);
         break;
     case "hiver":
+        // Pour économiser des ressources : exécution de la fonction à déplacer ici si possible
         console.log(`Prix du jeu après application de la promotion d'hiver : ${prix_final_hiver} €.`);
         break;
     case "autre":
+        // Pour économiser des ressources : exécution de la fonction à déplacer ici si possible
         console.log(`Prix du jeu après application de la promotion spéciale : ${prix_final_autre} €.`);
         break;
     default:
-        console.log(`Le prix d'origine du jeu est : ${prix_jeu} €.`);
+        console.log(`Le prix de départ du jeu est : ${prix_jeu} €.`);
 }
