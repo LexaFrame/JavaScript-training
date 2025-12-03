@@ -1,0 +1,18 @@
+import readlineSync from 'readline-sync';
+
+let jeux_retros = [];
+ creer_jeu(){
+    let jeu1 = {
+       jeu1 = readlineSync.question(`Quel est le nom du jeu ?`);
+        
+    titre: "tetris",
+    annee_de_sortie: "1984",
+    genre: "puzzle",
+    jeux_retros.push("tetris")
+}
+let jeux_modernes = [];
+
+// jeux_retros.push ("tetris", "space_invaders", "pac-man", "pong");
+// jeux_modernes.push ("octopath_traveller_2", "wargroove", "pathway", "dragon_quest_monsters")
+
+// console.log(jeux_retros);
