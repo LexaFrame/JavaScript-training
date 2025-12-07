@@ -13,6 +13,10 @@ function creerJeu(titre, annee_de_sortie, genre) {
     return nouveauJeu;
 }
 
+// function afficherListeJeux(liste) {
+//     console.log(jeux_retros+jeux_retros);
+// }
+
 let nouveauJeu1 = creerJeu ("Tetris", 1984, "Puzzle");
 jeux_retros.push(nouveauJeu1);
 let nouveauJeu2 = creerJeu ("Space Invaders", 1978, "Shoot 'em up");
@@ -33,10 +37,13 @@ let nouveauJeu8 = creerJeu("Wargroove", 2019, "Tactique tour par tour");
 jeux_modernes.push(nouveauJeu8);
 // console.log(jeux_modernes);
 
-// Utiliser forEach ? ou faire appel à l'index et dire de parcourir tout le tableau.
 
-function afficherListeJeux(jeux_retros, jeux_modernes) {
-    console.log(jeux_retros, jeux_modernes);
-}
-afficherListeJeux(jeux_retros, jeux_modernes);
+jeux_retros.forEach(function(titre, annee_de_sortie, genre) {
+    console.log(titre, annee_de_sortie, genre);
 
+});
+
+// jeux_retros.push ("tetris", "space_invaders", "pac-man", "pong");
+// jeux_modernes.push ("octopath_traveller_2", "wargroove", "pathway", "dragon_quest_monsters")
+
+// console.log(jeux_retros);

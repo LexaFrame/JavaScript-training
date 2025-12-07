@@ -21,7 +21,7 @@ let nouveauJeu3 = creerJeu("Pac-Man", 1980, "Labyrinthe");
 jeux_retros.push(nouveauJeu3);
 let nouveauJeu4 = creerJeu ("Pong", 1972, "Sport");
 jeux_retros.push(nouveauJeu4);
-// console.log(jeux_retros);
+
 
 let nouveauJeu5 = creerJeu("Octopath Traveler II", 2023, "RPG");
 jeux_modernes.push(nouveauJeu5);
@@ -31,12 +31,35 @@ let nouveauJeu7 = creerJeu("Pathway", 2019, "Stratégie tour par tour");
 jeux_modernes.push(nouveauJeu7);
 let nouveauJeu8 = creerJeu("Wargroove", 2019, "Tactique tour par tour");
 jeux_modernes.push(nouveauJeu8);
-// console.log(jeux_modernes);
 
-// Utiliser forEach ? ou faire appel à l'index et dire de parcourir tout le tableau.
 
-function afficherListeJeux(jeux_retros, jeux_modernes) {
-    console.log(jeux_retros, jeux_modernes);
+function afficherListeJeux(liste) {
+liste.forEach(function(jeu) {
+    console.log(jeu.titre, jeu.annee_de_sortie, jeu.genre);
+});
+    // console.log(liste);
 }
-afficherListeJeux(jeux_retros, jeux_modernes);
 
+afficherListeJeux(jeux_retros);
+afficherListeJeux(jeux_modernes);
+
+let NbJeuxRetros = jeux_retros.length;
+
+let totalAnnees1 = jeux_retros.reduce((iAnnee, jeu) => {
+    return iAnnee + jeu.annee_de_sortie; 
+}, 0);
+
+let moyenneAnnees1 = totalAnnees1 / NbJeuxRetros;
+
+let NbJeuxModernes = jeux_modernes.length;
+
+let totalAnnees2 = jeux_modernes.reduce((iAnnee, jeu) => {
+    return iAnnee + jeu.annee_de_sortie; 
+}, 0);
+
+let moyenneAnnees2 = totalAnnees2 / NbJeuxModernes;
+
+let totalNbJeux = NbJeuxRetros+NbJeuxModernes;
+let totalGeneralMoyenneAnnees = (totalAnnees1 + totalAnnees2) / totalNbJeux;
+
+console.log(`Moyenne des années de sortie des jeux : ${totalGeneralMoyenneAnnees.toFixed(1)}`);
