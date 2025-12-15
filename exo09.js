@@ -5,25 +5,45 @@ console.log(`Grand jeu FizzBuzz ! Nombres de 1 à 151 :`);
 let nombre = 0;
 let nombre_cible = 151;
 
+// Version 1 : 
+// while (nombre<nombre_cible) {
+//         nombre++ ;
+//     if ((nombre % 3 === 0) && (nombre % 5 === 0)) { 
+//         function fizzbuzz(nombre) { //Multiple de 3 et 5
+//             console.log(`FizzBuzz!`);
+//         }
+//         fizzbuzz(nombre);
+
+//         } else if (nombre % 3 === 0) {
+//         function fizz(nombre) { //Multiple de 3
+//             console.log(`Fizz!`);
+//         }
+//         fizz(nombre);
+
+//         } else if (nombre % 5 === 0) {
+//         function buzz(nombre) { //Multiple de 5
+//             console.log(`Buzz!`);
+//         }
+//         buzz(nombre);
+//         } else {
+//         console.log(nombre);
+//         }
+//     }
+
+// Version 2 (correction) : 
+        function fizzbuzz(message) { //Multiple de 3 et 5
+            console.log(message);
+        }
+
 while (nombre<nombre_cible) {
         nombre++ ;
     if ((nombre % 3 === 0) && (nombre % 5 === 0)) { 
-        function fizzbuzz(nombre) { //Multiple de 3 et 5
-            console.log(`FizzBuzz!`);
-        }
-        fizzbuzz(nombre);
+        fizzbuzz("fizzbuzz");
 
         } else if (nombre % 3 === 0) {
-        function fizz(nombre) { //Multiple de 3
-            console.log(`Fizz!`);
-        }
-        fizz(nombre);
-
+        fizzbuzz("fizz");
         } else if (nombre % 5 === 0) {
-        function buzz(nombre) { //Multiple de 5
-            console.log(`Buzz!`);
-        }
-        buzz(nombre);
+        fizzbuzz("buzz");
         } else {
         console.log(nombre);
         }

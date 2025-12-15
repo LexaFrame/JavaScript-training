@@ -1,110 +1,68 @@
 let collection = [
-    {
-        titre: "Space Adventure",
-        annee_de_sortie: 1984,
-        scores: [85, 87, 90, 78, 88],
-    },
-    {
-        titre: "Castle Quest",
-        annee_de_sortie: 1990,
-        scores: [92, 91, 89, 95, 94],
-    },
-    {
-        titre: "Jungle Journey",
-        annee_de_sortie: 2021,
-        scores: [88, 90, 85, 87, 89],
-    },
+  {
+    titre: "Space Adventure",
+    annee_de_sortie: 1984,
+    scores: [85, 87, 90, 78, 88],
+  },
+  {
+    titre: "Castle Quest",
+    annee_de_sortie: 1990,
+    scores: [92, 91, 89, 95, 94],
+  },
+  {
+    titre: "Jungle Journey",
+    annee_de_sortie: 2021,
+    scores: [88, 90, 85, 87, 89],
+  },
 ];
 
-// Afficher un jeu : 
-    function afficherJeu(titre, annee_de_sortie, scores) {
-        console.log(titre, annee_de_sortie, scores);
-    };
+// Afficher un jeu :
+function afficherJeu(titre, annee_de_sortie, scores) {
+  console.log(titre, annee_de_sortie, scores);
+}
 
-    afficherJeu(collection[0].titre, collection[0].annee_de_sortie, collection[0].scores);
+afficherJeu(
+  collection[0].titre,
+  collection[0].annee_de_sortie,
+  collection[0].scores
+);
 
 // Afficher la collection de jeux :
-    function afficherCollection(liste) {
-        liste.forEach(function(jeu) {
-            console.log(jeu.titre, jeu.annee_de_sortie, jeu.scores)
-        })
-    }
+function afficherCollection(liste) {
+  liste.forEach(function (jeu) {
+    console.log(jeu.titre, jeu.annee_de_sortie, jeu.scores);
+  });
+}
 
 afficherCollection(collection);
 
-// Moyenne des scores du premier jeu : 
+// Faire une fonction pour calculer la moyenne des jeux automatiquement, puis faire une fonction pour calculer la moyenne de la collection : 
 
-    // Nombre de scores du premier jeu : 
-        let NbTotalScoresJeu1 = collection[0].scores.length;
-        // console.log(`Il y a ${NbTotalScoresJeu1} scores pour le premier jeu.`);
+function calculerMoyenneJeu(scores) {
+    let NbTotalScoresJeu = scores.length;
+    let sommeScoresJeu = scores.reduce((acc, scores) => {
+          return acc + scores;
+    }, 0);
+    let totalMoyenneScoreJeu = sommeScoresJeu / NbTotalScoresJeu;
+        return totalMoyenneScoreJeu ;
+    }
 
-    // Somme des scores du premier jeu :
-        let sommeScoresJeu1 = collection[0].scores.reduce((acc, scores) => {
-            return acc + scores;
-        }, 0);
-
-        // console.log(`La somme des scores du premier jeu est : ${sommeScoresJeu1}.`);
-
-    //Calcul moyenne des scores du premier jeu : 
-
-    let totalMoyenneScoreJeu1 = sommeScoresJeu1 / NbTotalScoresJeu1 ;
-
-    console.log(`La moyenne des scores du premier jeu est de : ${totalMoyenneScoreJeu1}.`);
-
-// Moyenne des scores de la collection : 
-
-    // Moyenne des scores du second jeu :
-
-        // Nombre de scores du second jeu : 
-            let NbTotalScoresJeu2 = collection[1].scores.length;
-            // console.log(`Il y a ${NbTotalScoresJeu2} scores pour le second jeu.`);
-
-            // Somme des scores du second jeu :
-                let sommeScoresJeu2 = collection[1].scores.reduce((acc, scores) => {
-                    return acc + scores;
-                }, 0);
-
-                // console.log(`La somme des scores du second jeu est : ${sommeScoresJeu2}.`);
-
-            //Calcul moyenne des scores du second jeu : 
-
-                let totalMoyenneScoreJeu2 = sommeScoresJeu2 / NbTotalScoresJeu2 ;
-
-                console.log(`La moyenne des scores du second jeu est de : ${totalMoyenneScoreJeu2}.`);
-
-                
-    // Moyenne des scores du troisième jeu :
-
-        // Nombre de scores du troisième jeu : 
-            let NbTotalScoresJeu3 = collection[2].scores.length;
-            // console.log(`Il y a ${NbTotalScoresJeu3} scores pour le troisième jeu.`);
-
-        // Somme des scores du troisième jeu :
-            let sommeScoresJeu3 = collection[2].scores.reduce((acc, scores) => {
-                return acc + scores;
-            }, 0);
-
-            // console.log(`La somme des scores du troisième jeu est : ${sommeScoresJeu3}.`);
-
-        //Calcul moyenne des scores du troisième jeu : 
-
-            let totalMoyenneScoreJeu3 = sommeScoresJeu3 / NbTotalScoresJeu3;
-
-            console.log(`La moyenne des scores du troisième jeu est de : ${totalMoyenneScoreJeu3}.`);
+calculerMoyenneJeu(collection[0].scores);
 
 
-    // Nombre de jeux de la collection :
+// function calculerMoyenneCollection(scores) {
 
-        // Nombre de jeux dans la collection : 
-            let NbJeuxCollection = collection.length;
-            console.log(`Il y a ${NbJeuxCollection} jeux dans la collection.`);
-            
-        // Somme du total des moyennes des scores des trois jeux :
+// }
+// let NbJeuxCollection = collection.length;
+// console.log(`Il y a ${NbJeuxCollection} jeux dans la collection.`);
+// let totalSommeMoyenneScoreTousJeux =
+//   totalMoyenneScoreJeu1 + totalMoyenneScoreJeu2 + totalMoyenneScoreJeu3;
+// let totalMoyenneScoreCollection =
+//   totalSommeMoyenneScoreTousJeux / NbJeuxCollection;
 
-            let totalSommeMoyenneScoreTousJeux = totalMoyenneScoreJeu1 + totalMoyenneScoreJeu2 + totalMoyenneScoreJeu3;
+// console.log(
+//   `La moyenne de la collection est de ${totalMoyenneScoreCollection.toFixed(
+//     1
+//   )}.`
+// );
 
-        // Moyenne des scores des jeux de la collection : 
-
-            let totalMoyenneScoreCollection = totalSommeMoyenneScoreTousJeux / NbJeuxCollection;
-
-            console.log(`La moyenne de la collection est de ${totalMoyenneScoreCollection.toFixed(1)}.`)

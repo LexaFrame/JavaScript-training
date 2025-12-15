@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>JavaScript : Exercice 16</title>
+
+    <style>
+      /*CSS si nécessaire*/
+    </style>
+  </head>
+
+  <body>
+    <h1>JavaScript : exercice n°16</h1>
+
+    <!-- Votre code HTML ici -->
+
+    <script>
+      // Définir la capacité d'une étagère :
+      const CAPACITE_DE_LETAGERE = 10;
+
+      // Récupérer la saisie par l'utilisateur du nombre de jeux arrivant en stock :
+      let jeuxEnStock = Number(
+        prompt("Combien de jeux vidéo avez-vous reçus en stock aujourd'hui ?")
+      );
+
+      // Forcer la saisie d'un nombre :
+      while (isNaN(jeuxEnStock)) {
+        alert("Veuillez saisir un nombre.");
+        jeuxEnStock = Number(
+          prompt("Combien de jeux vidéo avez-vous reçus en stock aujourd'hui ?")
+        );
+      }
+
+      // Confirmation à l'utilisateur de la valeur qui a été saisie :
+      alert("Le nombre que vous avez saisi est : " + jeuxEnStock + ".");
+
+      // TODO À faire plus tard : Contraindre la saisie d'un entier quand ce sera possible
+
+      // Vérifier que la saisie de l'utilisateur n'est pas inférieure à 1 :
+      while (jeuxEnStock < 1) {
+        alert(
+          "Le nombre de jeux arrivant en stock ne peut être inférieur à 1. Veuillez saisir un nombre supérieur ou égal à 1"
+        );
+        jeuxEnStock = Number(
+          prompt("Combien de jeux vidéo avez-vous reçus en stock aujourd'hui ?")
+        );
+      }
+      alert("Vous avez reçu " + jeuxEnStock + " jeux vidéo aujourd'hui.");
+
+      // Savoir combien d'étagères sont remplies :
+
+      if (jeuxEnStock >= 1) {
+        let etageresRemplies = jeuxEnStock / CAPACITE_DE_LETAGERE;
+        alert(
+          "Le nombre d'étagères remplies est de " + Math.trunc(etageresRemplies)
+        );
+      }
+
+      // Savoir combien de jeux restent après avoir rempli les étagères :
+      jeuxRestants = jeuxEnStock % CAPACITE_DE_LETAGERE;
+      alert("Il reste : " + jeuxRestants + " jeux.");
+    </script>
+  </body>
+</html>

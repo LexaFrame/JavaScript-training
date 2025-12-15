@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendrier PixelBay</title>
+    <style>
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .month {
+            border: 2px solid #333;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f0f0f0;
+        }
+        .month h3 {
+            margin-top: 0;
+            color: #d9534f;
+        }
+        .month p {
+            font-size: 14px;
+            color: #666;
+            font-weight:600;
+        }
+        .month span {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calendrier Promotionnel PixelBay</h1>
+    <div id="calendar" class="calendar"></div>
+
+    <script>
+        let moisAnnee = [
+            {
+                mois : "Janvier",
+                nomJeu : "Cyber Race",
+                descriptionJeu : "Jeu de course futuriste",
+            },
+            {
+                mois : "Février",
+                nomJeu : "Pixel Quest",
+                descriptionJeu : "RPG rétro-classique",
+            },
+            {   mois : "Mars",
+                nomJeu : "Block Master",
+                descriptionJeu : "Puzzle addictif",
+            },
+            {
+                mois : "Avril",
+                nomJeu : "Sky Pilot",
+                descriptionJeu : "Simulateur de vol",
+            },
+            {
+                mois : "Mai",
+                nomJeu : "Dungeon Crawl",
+                descriptionJeu : "Action-aventure",
+            },
+            {
+                mois : "Juin",
+                nomJeu : "Mystic Lands",
+                descriptionJeu : "Jeu d'exploration",
+            },
+            {
+                mois : "Juillet",
+                nomJeu : "Battle Arena",
+                descriptionJeu : "Combat en 1v1",
+            },
+            {
+                mois : "Août",
+                nomJeu : "Escape Room",
+                descriptionJeu : "Jeu de réflexion",
+            },
+            {
+                mois : "Septembre",
+                nomJeu : "Neural Rush",
+                descriptionJeu : "Jeu d'arcade",
+            },
+            {
+                mois : "Octobre",
+                nomJeu : "Horror House",
+                descriptionJeu : "Jeu d'horreur",
+            },
+            {
+                mois : "Novembre",
+                nomJeu : "Festival Games",
+                descriptionJeu : "Mini jeux variés",
+            },
+            {
+                mois : "Décembre",
+                nomJeu : "Winter Sports",
+                descriptionJeu : "Jeux d'hiver",
+            },
+        ];
+        
+        let conteneur1 = document.getElementById("calendar");
+        for(let indexMoisAnnee = 0; indexMoisAnnee<moisAnnee.length; indexMoisAnnee++) {
+                let addMois = document.createElement("div");
+                addMois.className = "month";
+                    let nomDuMois = document.createElement("h3")
+                    nomDuMois.textContent = moisAnnee[indexMoisAnnee].mois;
+                    let nomDuJeu = document.createElement("p")
+                    nomDuJeu.textContent = moisAnnee[indexMoisAnnee].nomJeu;
+                    let descriptionDuJeu = document.createElement("span")
+                    descriptionDuJeu.textContent = moisAnnee[indexMoisAnnee].descriptionJeu;
+                    addMois.appendChild(nomDuMois);
+                    addMois.appendChild(nomDuJeu);
+                    addMois.appendChild(descriptionDuJeu);
+                conteneur1.appendChild(addMois);
+        }
+    </script>
+</body>
+</html>
