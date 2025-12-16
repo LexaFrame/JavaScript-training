@@ -1,4 +1,4 @@
-# Projet Fil Rouge - "NomProjet"
+# Projet Fil Rouge - WishLog
 
 ## Objectif
 

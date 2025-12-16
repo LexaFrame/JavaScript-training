@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulation de Commande</title>
+    <style>
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .result.active {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculateur de Panier PixelBay</h1>
+    <form>
+        <div>
+            <label for="quantity">Quantité</label>
+            <input id="quantity" type="number" min="1" max="100" value="1" />
+        </div>
+        <div>
+            <label for="unitPrice">Prix Unitaire HT</label>
+            <input id="unitPrice" type="text" value="49.99" disabled />
+        </div>
+        <div>
+            <label for="tax">TVA %</label>
+            <input id="tax" type="text" value="20" disabled />
+        </div>
+        <div>
+            <button type="submit">Recalculer le panier</button>
+        </div>
+    </form>
+    <div class="result"></div>
+
+    <script>
+        let prixUHT = document.querySelector("#unitPrice");
+        let quantite = document.querySelector("#quantity");
+        let tauxTVA = document.querySelector("#tax");
+        let calculTotal= document.getElementById("button")
+        function calculPrixFinal () {
+            champ1 = add.EventListener("input", () => {
+                let totalHT = prixUHT*quantite
+
+                let montantTotalTVA = (totalHT*tauxTVA)/100;
+
+                let totalTTC = totalHT+montantTotalTVA;
+            }         
+        }
+        bouton.addEventListener("click", calculPrixFinal)
+
+        let prixFinalPanier = document.querySelector(.result)
+
+
+    </script>
+</body>
+</html>

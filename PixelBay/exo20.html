@@ -25,10 +25,15 @@
     <script>
 
         let scrollFooter = document.querySelector("footer")
+
+        let hauteurScrollable = document.documentElement.scrollHeight - window.innerHeight
   
         window.addEventListener("scroll", () => {
-            window.scrollY
+            let pourcentageScroll = (window.scrollY / hauteurScrollable) * 100
+            scrollFooter.style.width = pourcentageScroll+"%";
         });
+
+        
 
     </script>
 </body>
