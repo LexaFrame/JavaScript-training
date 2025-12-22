@@ -1,59 +1,74 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Simulation de Commande</title>
     <style>
-        .result {
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        .result.active {
-            color: green;
-        }
+      .result {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      .result.active {
+        color: green;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Calculateur de Panier PixelBay</h1>
     <form>
-        <div>
-            <label for="quantity">Quantité</label>
-            <input id="quantity" type="number" min="1" max="100" value="1" />
-        </div>
-        <div>
-            <label for="unitPrice">Prix Unitaire HT</label>
-            <input id="unitPrice" type="text" value="49.99" disabled />
-        </div>
-        <div>
-            <label for="tax">TVA %</label>
-            <input id="tax" type="text" value="20" disabled />
-        </div>
-        <div>
-            <button type="submit">Recalculer le panier</button>
-        </div>
+      <div>
+        <label for="quantity">Quantité</label>
+        <input id="quantity" type="number" min="1" max="100" value="1" />
+      </div>
+      <div>
+        <label for="unitPrice">Prix Unitaire HT</label>
+        <input id="unitPrice" type="text" value="49.99" disabled />
+      </div>
+      <div>
+        <label for="tax">TVA %</label>
+        <input id="tax" type="text" value="20" disabled />
+      </div>
+      <div>
+        <button type="submit">Recalculer le panier</button>
+      </div>
     </form>
     <div class="result"></div>
 
     <script>
-        let prixUHT = document.querySelector("#unitPrice");
-        let quantite = document.querySelector("#quantity");
-        let tauxTVA = document.querySelector("#tax");
-        let calculTotal= document.getElementById("button")
-        function calculPrixFinal () {
-            champ1 = add.EventListener("input", () => {
-                let totalHT = prixUHT*quantite
+      let quantiteInput = document.querySelector("#quantity");
+      let calculTotal = document.querySelector("button");
+      console.log("calculTotal:", calculTotal);
 
-                let montantTotalTVA = (totalHT*tauxTVA)/100;
+      let resultat = document.querySelector(".result");
+      console.log("resultat:", resultat);
 
-                let totalTTC = totalHT+montantTotalTVA;
-            }         
-        }
-        bouton.addEventListener("click", calculPrixFinal)
+      function calculPrixFinal(e) {
+        let prixUHT = parseFloat(document.querySelector("#unitPrice").value);
+        console.log("prixUHT:", prixUHT);
 
-        let prixFinalPanier = document.querySelector(.result)
+        let quantite = parseFloat(document.querySelector("#quantity").value);
+        console.log("quantite:", quantite);
 
+        let tauxTVA = parseFloat(document.querySelector("#tax").value);
+        console.log("tauxTVA:", tauxTVA);
+        console.log(e);
+        e.preventDefault();
 
+        let totalHT = prixUHT * quantite;
+        console.log("totalHT:", totalHT);
+
+        let montantTotalTVA = (totalHT * tauxTVA) / 100;
+        console.log("montantTotalTVA:", montantTotalTVA);
+
+        let totalTTC = totalHT + montantTotalTVA;
+        console.log("totalTTC:", totalTTC);
+
+        // FAIT Ci-dessous : modifier l'élément .result dans le DOM pour afficher le total TTC
+        resultat.textContent = totalTTC;
+      }
+      quantiteInput.addEventListener("input", calculPrixFinal);
+      calculTotal.addEventListener("click", calculPrixFinal);
     </script>
-</body>
+  </body>
 </html>

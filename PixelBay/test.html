@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulation de Commande</title>
+    <style>
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .result.active {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculateur de Panier PixelBay</h1>
+    <form>
+        <div>
+            <label for="quantity">Quantité</label>
+            <input id="quantity" type="number" min="1" max="100" value="1" />
+        </div>
+        <div>
+            <label for="unitPrice">Prix Unitaire HT</label>
+            <input id="unitPrice" type="text" value="49.99" disabled />
+        </div>
+        <div>
+            <label for="tax">TVA %</label>
+            <input id="tax" type="text" value="20" disabled />
+        </div>
+        <div>
+            <button type="submit">Recalculer le panier</button>
+        </div>
+    </form>
+    <div class="result"></div>
+
+    <script>
+
+        function calculPrixFinal () {
+
+        let prixUHT = parseFloat(document.querySelector("#unitPrice").value);
+        let quantite = parseFloat(document.querySelector("#quantity").value);
+        let tauxTVA = parseFloat(document.querySelector("#tax").value);
+        let calculTotal= document.getElementsByTagName("button");
+        let resultat = document.getElementsByClassName("result")
+
+                let totalHT = prixUHT*quantite
+
+                let montantTotalTVA = (totalHT*tauxTVA)/100;
+
+                let totalTTC = totalHT+montantTotalTVA;
+
+        // TODO Ci-dessous : modifier l'élément .result dans le DOM pour afficher le total TTC (et ajouter une classe .active ?=
+                let prixFinalPanier = document.querySelector(".result");
+                prixFinalPanier.innerHTML = "<strong>Total TTC : </strong>" + totalTTC;
+                resultat[0].textContent = totalTTC
+            }     
+        quantite.addEventListener("input", calculPrixFinal)
+        calculTotal[0].addEventListener("click", calculPrixFinal)
+    </script>
+</body>
+</html>
